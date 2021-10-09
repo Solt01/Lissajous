@@ -106,7 +106,7 @@ class LissajousWindow(qt.QMainWindow):
         if file_path == "":
             return
 
-        #raise NotImplementedError("Тут всего одной строчки не хватает.")
+        raise NotImplementedError("Вознкла непредвиденная ошибка!.")
         self._fig.savefig(file_path)
 
     def update_figure(self):
