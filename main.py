@@ -63,23 +63,13 @@ class LissajousWindow(qt.QMainWindow):
 
         self.resize(650, 300)
 
-        self.plot_button.clicked.connect(self.plot_button_click_handler)
+        self.freq_x_lineedit.textChanged.connect(self.update_figure)
+        self.freq_y_lineedit.textChanged.connect(self.update_figure)
+        
+        self.color_combobox.currentTextChanged.connect(self.update_figure)
+        self.width_combobox.currentIndexChanged.connect(self.update_figure)
+        
         self.save_button.clicked.connect(self.save_button_click_handler)
-
-    def plot_button_click_handler(self):
-        """
-        Обработчик нажатия на кнопку применения настроек
-        """
-        # Получаем данные из текстовых полей
-        settings = {}
-
-        settings["freq_x"] = float(self.freq_x_lineedit.text())
-        settings["freq_y"] = float(self.freq_y_lineedit.text())
-        settings["color"] = mpl_color_dict[self.color_combobox.currentText()]
-        settings["width"] = int(self.width_combobox.currentText())
-
-        # Перестраиваем график
-        self.plot_lissajous_figure(settings)
 
     def plot_lissajous_figure(self, settings=default_settings):
         """
@@ -119,7 +109,20 @@ class LissajousWindow(qt.QMainWindow):
         #raise NotImplementedError("Тут всего одной строчки не хватает.")
         self._fig.savefig(file_path)
 
+    def update_figure(self):
+        """
+        Обработчик автоматического применения настроек
+        """
+        # Получаем данные из текстовых полей
+        settings = {}
 
+        settings["freq_x"] = float(self.freq_x_lineedit.text())
+        settings["freq_y"] = float(self.freq_y_lineedit.text())
+        settings["color"] = mpl_color_dict[self.color_combobox.currentText()]
+        settings["width"] = int(self.width_combobox.currentText())
+
+        # Перестраиваем график
+        self.plot_lissajous_figure(settings)
 if __name__ == "__main__":
     # Инициализируем приложение Qt
     app = qt.QApplication(sys.argv)

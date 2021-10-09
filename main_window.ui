@@ -19,11 +19,18 @@
      <rect>
       <x>430</x>
       <y>20</y>
-      <width>181</width>
-      <height>158</height>
+      <width>183</width>
+      <height>151</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Частота X (a)</string>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="1">
       <widget class="QLineEdit" name="freq_y_lineedit">
        <property name="text">
@@ -108,23 +115,9 @@
       </widget>
      </item>
      <item row="4" column="0" colspan="2">
-      <widget class="QPushButton" name="plot_button">
-       <property name="text">
-        <string>Обновить фигуру</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0" colspan="2">
       <widget class="QPushButton" name="save_button">
        <property name="text">
         <string>Сохранить фигуру в файл</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Частота X (a)</string>
        </property>
       </widget>
      </item>
@@ -137,7 +130,7 @@
      <x>0</x>
      <y>0</y>
      <width>620</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
